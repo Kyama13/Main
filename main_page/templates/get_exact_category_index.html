@@ -1,0 +1,4 @@
+<a href="/products">Продукты</a><hr>
+{% for product in current_category %}
+    <a href="/product/{{product.product_name}}">{{ product }}</a>
+{% endfor %}

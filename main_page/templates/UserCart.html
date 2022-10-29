@@ -1,0 +1,19 @@
+<a href="/products">Продукты</a><hr><br><br>
+<a href="/user_cart">Корзина</a><hr>
+    {% for cart in user_cart %}
+
+    Товар:{{ cart.user_product.product_name }}<br>
+    Коллисетво:{{ cart.user_product_quantity }}<br>
+    Цена за 1 товар:{{ cart.user_product.product_price }}<br>
+<!--    Изображение: {{ cart.user_product.product_image }}<br>-->
+    Итог: {% widthratio cart.user_product_quantity 1 cart.user_product.product_price %}
+
+    <form action="/delete_product/{{ cart.user_product.id }}">
+        <button>Удалить</button>
+    </form>
+    {% endfor %}
+    <form action="/checkout" method="POST">
+        {% csrf_token %}
+        <button>Оформить заказ</button>
+    </form>
+    <a href="/">Главная страница</a>

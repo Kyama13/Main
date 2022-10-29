@@ -1,0 +1,9 @@
+<a href="/products">Все продукты</a><hr>
+
+<a href="/user_cart">Корзина</a><hr>
+
+{% for product in all_products %}
+    <img src="/{{ product.product_image }}" alt="">
+    <a href="/product/{{product.product_name}}">{{ product }}</a>
+    <br>
+{% endfor %}
