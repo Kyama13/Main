@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-@nlt@x*#-7-uyphsp8&(2hxxf0jp9qs11g7%6uon4mo2w#gvwp"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware. WhiteNoiseMiddleware"# Для сервера
 ]
 
 ROOT_URLCONF = "nike_shoes.urls"
@@ -109,8 +110,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
+import os
 STATIC_URL = "static/"
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+
+SATISFILES_DIRS = [
+    os.path.join(BASE_DIR, 'main_page/stastic')
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
